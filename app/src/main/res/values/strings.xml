@@ -10,4 +10,10 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="item_menu_init">Inicio</string>
+    <string name="item_menu_info">Device Info</string>
+    <string name="item_menu_portscan">PortScan</string>
+    <string name="item_menu_overview">Analisis</string>
+    <string name="item_menu_speedtest">SpeedTest</string>
+    <string name="item_menu_settings">Configuracion</string>
 </resources>
