@@ -10,4 +10,7 @@
       <color name="light_red">#FF0B50</color>
       <color name="light_smooth_red">#FFA1A7</color>
       <color name="light_smooth_red_2">#FEEDEE</color>
-  </resources>
+      <color name="blue">#5385DA</color>
+      <color name="dark_grey">#3A3A3A</color>
+      <color name="dark_yellow">#FFDE3B</color>
+</resources>

@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/fragmentHome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@color/white">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/logoSeknet"
         android:src="@mipmap/logo_seknet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -21,25 +22,22 @@
         android:id="@+id/dividerTop"
         android:layout_width="match_parent"
         android:layout_height="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:elevation="8dp"
         app:dividerColor="@color/light_smooth_red"
         app:layout_constraintTop_toBottomOf="@id/logoSeknet"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/itemBackground1"
         android:layout_width="256dp"
-        android:layout_height="48dp"
+        android:layout_height="56dp"
         android:layout_margin="8dp"
         android:elevation="4dp"
-        android:background="@color/light_smooth_red_2"
+        android:backgroundTint="@color/light_smooth_red_2"
         app:layout_constraintTop_toBottomOf="@id/dividerTop"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -47,13 +45,12 @@
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:scaleType="centerCrop"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:src="@drawable/icon_home_24"
             android:elevation="4dp"
             app:layout_constraintStart_toStartOf="@id/itemBackground1"
             app:layout_constraintTop_toTopOf="@id/itemBackground1"
-            app:layout_constraintBottom_toBottomOf="@id/itemBackground1"
-            />
+            app:layout_constraintBottom_toBottomOf="@id/itemBackground1"/>
 
         <TextView
             android:id="@+id/homeTitleText"
@@ -61,7 +58,7 @@
             android:textStyle="bold"
             android:textSize="18dp"
             android:layout_marginLeft="32dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="4dp"
@@ -78,13 +75,13 @@
             app:layout_constraintTop_toBottomOf="@id/homeTitleText"/>
 
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/itemBackground2"
         android:layout_width="256dp"
-        android:layout_height="48dp"
+        android:layout_height="56dp"
         android:layout_margin="8dp"
         android:elevation="4dp"
-        android:background="@color/light_smooth_red_2"
+        android:backgroundTint="@color/light_smooth_red_2"
         app:layout_constraintTop_toBottomOf="@id/itemBackground1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -94,20 +91,20 @@
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:scaleType="centerCrop"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:elevation="4dp"
         android:src="@drawable/icon_device_information_24"
         app:layout_constraintStart_toStartOf="@id/itemBackground2"
         app:layout_constraintTop_toTopOf="@id/itemBackground2"
         app:layout_constraintBottom_toBottomOf="@id/itemBackground2"/>
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/itemBackground3"
         android:layout_width="256dp"
-        android:layout_height="48dp"
+        android:layout_height="56dp"
         android:layout_margin="8dp"
         android:elevation="4dp"
-        android:background="@color/light_smooth_red_2"
+        android:backgroundTint="@color/light_smooth_red_2"
         app:layout_constraintTop_toBottomOf="@id/itemBackground2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -117,20 +114,20 @@
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:scaleType="centerCrop"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:elevation="4dp"
         android:src="@drawable/icon_safety_check_24"
         app:layout_constraintStart_toStartOf="@id/itemBackground3"
         app:layout_constraintTop_toTopOf="@id/itemBackground3"
         app:layout_constraintBottom_toBottomOf="@id/itemBackground3"/>
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/itemBackground4"
         android:layout_width="256dp"
-        android:layout_height="48dp"
+        android:layout_height="56dp"
         android:layout_margin="8dp"
         android:elevation="4dp"
-        android:background="@color/light_smooth_red_2"
+        android:backgroundTint="@color/light_smooth_red_2"
         app:layout_constraintTop_toBottomOf="@id/itemBackground3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -140,20 +137,20 @@
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:scaleType="centerCrop"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:elevation="4dp"
         android:src="@drawable/icon_wifi_tethering_24"
         app:layout_constraintStart_toStartOf="@id/itemBackground4"
         app:layout_constraintTop_toTopOf="@id/itemBackground4"
         app:layout_constraintBottom_toBottomOf="@id/itemBackground4"/>
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/itemBackground5"
         android:layout_width="256dp"
-        android:layout_height="48dp"
+        android:layout_height="56dp"
         android:layout_margin="8dp"
         android:elevation="4dp"
-        android:background="@color/light_smooth_red_2"
+        android:backgroundTint="@color/light_smooth_red_2"
         app:layout_constraintTop_toBottomOf="@id/itemBackground4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -163,7 +160,7 @@
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:scaleType="centerCrop"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:elevation="4dp"
         android:src="@drawable/icon_network_check_24"
         app:layout_constraintStart_toStartOf="@id/itemBackground5"
@@ -174,12 +171,11 @@
         android:id="@+id/dividerBottom"
         android:layout_width="match_parent"
         android:layout_height="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:elevation="8dp"
         app:dividerColor="@color/light_smooth_red"
         app:layout_constraintTop_toBottomOf="@id/itemBackground5"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"/>
     
 </androidx.constraintlayout.widget.ConstraintLayout>
 
