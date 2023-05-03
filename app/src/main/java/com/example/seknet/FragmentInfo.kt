@@ -13,7 +13,7 @@ class FragmentInfo : Fragment(R.layout.fragment_info) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = FragmentInfoBinding.inflate(layoutInflater)
         binding.infoDeviceNameValue.text = getSystemDetail()
-
+        context?.getTheme()?.applyStyle(1, true);
     }
 
     @SuppressLint("HardwareIds")
