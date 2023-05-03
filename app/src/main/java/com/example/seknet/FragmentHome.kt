@@ -22,7 +22,7 @@ class FragmentHome : Fragment(R.layout.fragment_home) {
 
     fun initListeners() {
         btnPortScanner.setOnClickListener {
-            val intent = Intent(requireContext(), PortScanActivity::class.java)
+            val intent = Intent(requireContext(), FragmentPortscan::class.java)
             startActivity(intent)
         }
     }
