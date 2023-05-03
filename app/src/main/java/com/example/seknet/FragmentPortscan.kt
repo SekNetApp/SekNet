@@ -13,7 +13,7 @@ import java.net.InetAddress
 import java.net.InetSocketAddress
 import java.net.Socket
 
-class FragmentPortscan : Fragment(R.layout.fragment_info) {
+class FragmentPortscan : Fragment(R.layout.fragment_portscan) {
 
     private lateinit var binding: FragmentPortscanBinding
     private lateinit var btnScanTarget: Button
@@ -39,7 +39,7 @@ class FragmentPortscan : Fragment(R.layout.fragment_info) {
         etTo = binding.etTo
     }
 
-    fun initListeners() {
+    private fun initListeners() {
         btnScanTarget.setOnClickListener {
             val target = etTarget.text.toString().toInt()
             scanTarget(target)
@@ -57,11 +57,10 @@ class FragmentPortscan : Fragment(R.layout.fragment_info) {
         try {
             // Get the IP address of the local device
             val localhost = InetAddress.getLocalHost()
-            // Define the port number to scan
-            val port = target
+            // Define the port number to scan "target"
             // Create a new socket and attempt to connect to the port
             val socket = Socket()
-            socket.connect(InetSocketAddress(localhost.hostAddress, port), 1000)
+            socket.connect(InetSocketAddress(localhost.hostAddress, target), 1000)
             result.setTextColor(Color.GREEN)
             result.text = "abierto"
             // Close the socket

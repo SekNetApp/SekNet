@@ -5,23 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:title="PORTSCAN"
-            app:titleCentered="true"
-            app:menu="@menu/lateral_menu_navigation_drawer"
-            app:navigationIcon="@drawable/icon_safety_check_24"
-            style="@style/Widget.MaterialComponents.Toolbar.Primary"
-            />
-
-    </com.google.android.material.appbar.AppBarLayout>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -31,7 +14,7 @@
         android:id="@+id/cvTarget"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="64dp"
         app:cardBackgroundColor="@color/cardview_dark_background"
         app:cardCornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
