@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
                     supportFragmentManager.commit {
                         setReorderingAllowed(true)
                         replace<FragmentHome>(R.id.fragmentContainer)
+                        drawerLayout.closeDrawers()
                     }
                 }
                 R.id.item_menu_info -> {
@@ -49,6 +50,7 @@ class MainActivity : AppCompatActivity() {
                     supportFragmentManager.commit {
                         setReorderingAllowed(true)
                         replace<FragmentInfo>(R.id.fragmentContainer)
+                        drawerLayout.closeDrawers()
                     }
                 }
                 R.id.item_menu_portscan -> {
@@ -56,6 +58,7 @@ class MainActivity : AppCompatActivity() {
                     supportFragmentManager.commit {
                         setReorderingAllowed(true)
                         replace<FragmentPortscan>(R.id.fragmentContainer)
+                        drawerLayout.closeDrawers()
                     }
                 }
                 R.id.item_menu_overview -> {
@@ -63,6 +66,7 @@ class MainActivity : AppCompatActivity() {
                     supportFragmentManager.commit {
                         setReorderingAllowed(true)
                         replace<FragmentAnalisis>(R.id.fragmentContainer)
+                        drawerLayout.closeDrawers()
                     }
                 }
                 R.id.item_menu_speedtest -> {
@@ -70,6 +74,7 @@ class MainActivity : AppCompatActivity() {
                     supportFragmentManager.commit {
                         setReorderingAllowed(true)
                         replace<FragmentSpeedtest>(R.id.fragmentContainer)
+                        drawerLayout.closeDrawers()
                     }
                 }
             }
