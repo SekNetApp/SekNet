@@ -16,4 +16,12 @@
     <string name="item_menu_overview">Analisis</string>
     <string name="item_menu_speedtest">SpeedTest</string>
     <string name="item_menu_settings">Configuracion</string>
+
+    <string name="portscan_title">Port Scanner</string>
+    <string name="scan_btn">SCAN</string>
+    <string name="target_scan_title">Puerto específico</string>
+    <string name="range_scan_title">Puertos</string>
+    <string name="range_scan_from">Desde</string>
+    <string name="range_scan_to">hasta</string>
+    <string name="port">Puerto</string>
 </resources>
