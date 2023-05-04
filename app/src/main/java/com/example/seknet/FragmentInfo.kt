@@ -12,11 +12,8 @@ class FragmentInfo : Fragment(R.layout.fragment_info) {
     private lateinit var binding: FragmentInfoBinding
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = FragmentInfoBinding.inflate(layoutInflater)
-        binding.infoDeviceNameValue.text = getSystemDetail()
-        context?.getTheme()?.applyStyle(1, true);
+        loadSystemDetail()
     }
-
-    @SuppressLint("HardwareIds")
     private fun getSystemDetail(): String {
         return  "Brand: ${Build.BRAND} \n" +
                 "Model: ${Build.MODEL} \n" +
@@ -33,4 +30,8 @@ class FragmentInfo : Fragment(R.layout.fragment_info) {
                 "FingerPrint: ${Build.FINGERPRINT} \n" +
                 "Version Code: ${Build.VERSION.RELEASE}"
     }
+    private fun loadSystemDetail() {
+        binding.infoDeviceNameValue.text = getSystemDetail()
+    }
+
 }
