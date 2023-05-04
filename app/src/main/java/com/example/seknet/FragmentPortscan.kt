@@ -12,6 +12,7 @@ import com.example.seknet.databinding.FragmentPortscanBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 import java.net.InetAddress
 import java.net.InetSocketAddress
 import java.net.Socket
@@ -87,7 +88,9 @@ class FragmentPortscan : Fragment(R.layout.fragment_portscan) {
                     val socket = Socket()
                     runBlocking {
                         val job = launch(Dispatchers.Default) {
-                            socket.connect(InetSocketAddress(localhost.hostAddress, port), 1000)
+                            withContext(Dispatchers.IO) {
+                                socket.connect(InetSocketAddress(localhost.hostAddress, port), 1000)
+                            }
                             result.setTextColor(Color.GREEN)
                             result.text = "$port abierto"
                         }
