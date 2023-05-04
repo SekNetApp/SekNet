@@ -27,4 +27,8 @@
     <string name="pantalla_principal">Pantalla principal</string>
     <string name="port_scanner">Port Scanner</string>
     <string name="escanea_los_puertos_abiertos">Escanea los puertos abiertos</string>
+    <string name="infoHome">Bienvenidos a la aplicacion, utilice el menu desplegable para seleccionar la opcion que desee</string>
+    <string name="speedtest">START TEST</string>
+    <string name="download_result">Download Result</string>
+    <string name="upload_result">Upload Result</string>
 </resources>
