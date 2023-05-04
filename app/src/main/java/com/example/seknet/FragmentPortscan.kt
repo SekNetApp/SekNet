@@ -9,6 +9,9 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.seknet.databinding.FragmentPortscanBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import java.net.InetAddress
 import java.net.InetSocketAddress
 import java.net.Socket
@@ -82,9 +85,13 @@ class FragmentPortscan : Fragment(R.layout.fragment_portscan) {
                 try {
                     // Create a new socket and attempt to connect to the port
                     val socket = Socket()
-                    socket.connect(InetSocketAddress(localhost.hostAddress, port), 1000)
-                    result.setTextColor(Color.GREEN)
-                    result.text = "$port abierto"
+                    runBlocking {
+                        val job = launch(Dispatchers.Default) {
+                            socket.connect(InetSocketAddress(localhost.hostAddress, port), 1000)
+                            result.setTextColor(Color.GREEN)
+                            result.text = "$port abierto"
+                        }
+                    }
                     // Close the socket
                     socket.close()
                 } catch (e: Exception) {

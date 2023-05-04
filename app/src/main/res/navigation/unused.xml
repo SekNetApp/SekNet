@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/fragmentHome">
+
+    <fragment
+        android:id="@+id/fragmentHome"
+        android:name="com.example.seknet.FragmentHome"
+        android:label="@string/item_menu_init" />
+
+    <fragment
+        android:id="@+id/fragmentInfo"
+        android:name="com.example.seknet.FragmentInfo"
+        android:label="@string/item_menu_info" />
+
+    <fragment
+        android:id="@+id/fragmentPortscan"
+        android:name="com.example.seknet.FragmentPortscan"
+        android:label="@string/item_menu_portscan" />
+    <fragment
+        android:id="@+id/fragmentSpeedtest"
+        android:name="com.example.seknet.FragmentSpeedtest"
+        android:label="@string/item_menu_speedtest" />
+    <fragment
+        android:id="@+id/fragmentAnalisis"
+        android:name="com.example.seknet.FragmentAnalisis"
+        android:label="@string/item_menu_overview" />
+</navigation>
