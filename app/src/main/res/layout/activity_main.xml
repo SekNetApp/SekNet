@@ -32,8 +32,9 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
+        android:backgroundTint="@color/white"
         app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/lateral_menu_navigation_drawer"/>
+        app:menu="@menu/lateral_menu_navigation_drawer" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>

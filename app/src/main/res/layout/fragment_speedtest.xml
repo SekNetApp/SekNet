@@ -8,6 +8,8 @@
         android:id="@+id/speedTestResultsLabel"
         android:text="SPEEDTEST RESULTS"
         android:textSize="24sp"
+        android:textColor="@color/black"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,6 +21,8 @@
         android:id="@+id/speedTestResultsUpload"
         android:text="@string/upload_result"
         android:textSize="18sp"
+        android:textColor="@color/black"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,6 +34,7 @@
         android:id="@+id/speedTestResultsDownload"
         android:text="@string/download_result"
         android:textSize="18sp"
+        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/speedTestResultsUpload"

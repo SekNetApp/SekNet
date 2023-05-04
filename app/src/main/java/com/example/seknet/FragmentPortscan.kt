@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.example.seknet.databinding.FragmentInfoBinding
 import com.example.seknet.databinding.FragmentPortscanBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -28,8 +29,8 @@ class FragmentPortscan : Fragment(R.layout.fragment_portscan) {
     private lateinit var etTo: EditText
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = FragmentPortscanBinding.inflate(layoutInflater)
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentPortscanBinding.bind(view)
         activity?.title = "PORTSCAN";
         initComponents()
         initListeners()
@@ -87,15 +88,9 @@ class FragmentPortscan : Fragment(R.layout.fragment_portscan) {
                 try {
                     // Create a new socket and attempt to connect to the port
                     val socket = Socket()
-                    runBlocking {
-                        val job = launch(Dispatchers.Default) {
-                            withContext(Dispatchers.IO) {
-                                socket.connect(InetSocketAddress(localhost.hostAddress, port), 1000)
-                            }
-                            result.setTextColor(Color.GREEN)
-                            result.text = "$port abierto"
-                        }
-                    }
+                    socket.connect(InetSocketAddress(localhost.hostAddress, port), 1000)
+                    result.setTextColor(Color.GREEN)
+                    result.text = "$port abierto"
                     // Close the socket
                     socket.close()
                 } catch (e: Exception) {

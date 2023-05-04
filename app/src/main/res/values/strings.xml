@@ -31,4 +31,5 @@
     <string name="speedtest">START TEST</string>
     <string name="download_result">Download Result</string>
     <string name="upload_result">Upload Result</string>
+    <string name="getting_information">Getting Information ...</string>
 </resources>

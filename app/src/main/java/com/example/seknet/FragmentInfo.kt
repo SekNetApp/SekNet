@@ -3,6 +3,7 @@ package com.example.seknet
 import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.seknet.databinding.FragmentInfoBinding
@@ -10,10 +11,12 @@ import com.example.seknet.databinding.FragmentInfoBinding
 class FragmentInfo : Fragment(R.layout.fragment_info) {
 
     private lateinit var binding: FragmentInfoBinding
+    private var result : String = ""
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding = FragmentInfoBinding.inflate(layoutInflater)
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentInfoBinding.bind(view)
         activity?.title = "INFO";
-
+        result = getSystemDetail()
         loadSystemDetail()
     }
     private fun getSystemDetail(): String {
@@ -33,7 +36,7 @@ class FragmentInfo : Fragment(R.layout.fragment_info) {
                 "Version Code: ${Build.VERSION.RELEASE}"
     }
     private fun loadSystemDetail() {
-        binding.infoDeviceNameValue.text = getSystemDetail()
+        binding.infoDeviceNameValue.text = result
     }
 
 }
