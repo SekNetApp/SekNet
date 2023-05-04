@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 
 class FragmentAnalisis : Fragment(R.layout.fragment_analisis) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        /*val someInt = requireArguments().getInt("some_int")*/
-
+        activity?.title = "ANALISIS";
     }
 }

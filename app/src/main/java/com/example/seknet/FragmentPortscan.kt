@@ -30,6 +30,7 @@ class FragmentPortscan : Fragment(R.layout.fragment_portscan) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FragmentPortscanBinding.inflate(layoutInflater)
+        activity?.title = "PORTSCAN";
         initComponents()
         initListeners()
     }

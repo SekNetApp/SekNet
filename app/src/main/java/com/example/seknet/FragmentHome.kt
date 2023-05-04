@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 
 class FragmentHome : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        /*val someInt = requireArguments().getInt("some_int")*/
-
+        activity?.title = "HOME";
     }
 }

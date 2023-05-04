@@ -12,6 +12,8 @@ class FragmentInfo : Fragment(R.layout.fragment_info) {
     private lateinit var binding: FragmentInfoBinding
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = FragmentInfoBinding.inflate(layoutInflater)
+        activity?.title = "INFO";
+
         loadSystemDetail()
     }
     private fun getSystemDetail(): String {

@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.appBarMain.toolbar)
-
         drawerLayout = binding.lateralMenu
         val toggle = ActionBarDrawerToggle(this,binding.lateralMenu,binding.appBarMain.toolbar,
             R.string.navigation_drawer_open, R.string.navigation_drawer_close)
@@ -51,14 +50,14 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 R.id.item_menu_portscan -> {
-                    supportFragmentManager.commit {
+                     supportFragmentManager.commit {
                         setReorderingAllowed(true)
                         replace<FragmentPortscan>(R.id.fragment_content_main)
                         drawerLayout.closeDrawers()
                     }
                 }
                 R.id.item_menu_overview -> {
-                    supportFragmentManager.commit {
+                     supportFragmentManager.commit {
                         setReorderingAllowed(true)
                         replace<FragmentAnalisis>(R.id.fragment_content_main)
                         drawerLayout.closeDrawers()
