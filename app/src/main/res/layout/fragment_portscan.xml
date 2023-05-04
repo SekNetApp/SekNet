@@ -73,10 +73,11 @@
 
             <Button
                 android:id="@+id/btnScanTarget"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:layout_margin="16dp"
-                android:backgroundTint="@color/light_smooth_red"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/light_red"
                 android:text="@string/scan_btn"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -164,10 +165,11 @@
 
                 <Button
                     android:id="@+id/btnScanRange"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="48dp"
                     android:layout_margin="16dp"
-                    android:backgroundTint="@color/light_smooth_red"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/light_red"
                     android:text="@string/scan_btn"
                     android:textStyle="bold" />
             </LinearLayout>

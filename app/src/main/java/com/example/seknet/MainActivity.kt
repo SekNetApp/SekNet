@@ -1,7 +1,6 @@
 package com.example.seknet
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
@@ -20,10 +19,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setSupportActionBar(binding.toolbar)
+        setSupportActionBar(binding.appBarMain.toolbar)
 
         drawerLayout = binding.lateralMenu
-        val toggle = ActionBarDrawerToggle(this,binding.lateralMenu,binding.toolbar,
+        val toggle = ActionBarDrawerToggle(this,binding.lateralMenu,binding.appBarMain.toolbar,
             R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
@@ -31,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             supportFragmentManager.commit {
                 setReorderingAllowed(true)
-                add<FragmentHome>(R.id.fragmentContainer)
+                add<FragmentHome>(R.id.fragment_content_main)
             }
         }
 
@@ -40,35 +39,35 @@ class MainActivity : AppCompatActivity() {
                 R.id.item_menu_home -> {
                     supportFragmentManager.commit {
                         setReorderingAllowed(true)
-                        replace<FragmentHome>(R.id.fragmentContainer)
+                        replace<FragmentHome>(R.id.fragment_content_main)
                         drawerLayout.closeDrawers()
                     }
                 }
                 R.id.item_menu_info -> {
                     supportFragmentManager.commit {
                         setReorderingAllowed(true)
-                        replace<FragmentInfo>(R.id.fragmentContainer)
+                        replace<FragmentInfo>(R.id.fragment_content_main)
                         drawerLayout.closeDrawers()
                     }
                 }
                 R.id.item_menu_portscan -> {
                     supportFragmentManager.commit {
                         setReorderingAllowed(true)
-                        replace<FragmentPortscan>(R.id.fragmentContainer)
+                        replace<FragmentPortscan>(R.id.fragment_content_main)
                         drawerLayout.closeDrawers()
                     }
                 }
                 R.id.item_menu_overview -> {
                     supportFragmentManager.commit {
                         setReorderingAllowed(true)
-                        replace<FragmentAnalisis>(R.id.fragmentContainer)
+                        replace<FragmentAnalisis>(R.id.fragment_content_main)
                         drawerLayout.closeDrawers()
                     }
                 }
                 R.id.item_menu_speedtest -> {
                     supportFragmentManager.commit {
                         setReorderingAllowed(true)
-                        replace<FragmentSpeedtest>(R.id.fragmentContainer)
+                        replace<FragmentSpeedtest>(R.id.fragment_content_main)
                         drawerLayout.closeDrawers()
                     }
                 }
