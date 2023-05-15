@@ -1,106 +1,92 @@
 package com.example.seknet
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.example.seknet.databinding.FragmentInfoBinding
+import androidx.lifecycle.lifecycleScope
 import com.example.seknet.databinding.FragmentPortscanBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
-import java.net.InetAddress
+import org.json.JSONObject.NULL
+import java.io.IOException
 import java.net.InetSocketAddress
 import java.net.Socket
 
 class FragmentPortscan : Fragment(R.layout.fragment_portscan) {
 
     private lateinit var binding: FragmentPortscanBinding
-    private lateinit var btnScanTarget: Button
-    private lateinit var btnScanRange: Button
+    private lateinit var btnScan: Button
     private lateinit var etTarget: EditText
-    private lateinit var tvResultRange: TextView
-    private lateinit var etFrom: EditText
-    private lateinit var etTo: EditText
+    private lateinit var tvResult: TextView
+    private lateinit var etStartPort: EditText
+    private lateinit var etEndPort: EditText
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentPortscanBinding.bind(view)
-        activity?.title = "PORTSCAN";
+        activity?.title = "PORTSCAN"
         initComponents()
         initListeners()
     }
 
     private fun initComponents() {
-        btnScanTarget = binding.btnScanTarget
-        btnScanRange = binding.btnScanRange
-        tvResultRange = binding.tvResultRange
-        etTarget = binding.etFrom
-        etFrom = binding.etFrom
-        etTo = binding.etTo
+        btnScan = binding.btnScan
+        tvResult = binding.tvResult
+        etStartPort = binding.etStartPort
+        etEndPort = binding.etEndPort
+        etTarget = binding.etTarget
     }
 
+    @SuppressLint("SetTextI18n")
     private fun initListeners() {
-        btnScanTarget.setOnClickListener {
-            val target = etTarget.text.toString().toInt()
-            scanTarget(target)
-        }
-
-        btnScanRange.setOnClickListener {
-            val from = etFrom.text.toString().toInt()
-            val to = etTo.text.toString().toInt()
-            scanRange(from, to)
-        }
-    }
-    @SuppressLint("SetTextI18n")
-    fun scanTarget(target: Int) {
-        val result = binding.tvResultTarget
-        try {
-            // Get the IP address of the local device
-            val localhost = InetAddress.getLocalHost()
-            // Define the port number to scan "target"
-            // Create a new socket and attempt to connect to the port
-            val socket = Socket()
-            socket.connect(InetSocketAddress(localhost.hostAddress, target), 1000)
-            result.setTextColor(Color.GREEN)
-            result.text = "abierto"
-            // Close the socket
-            socket.close()
-        } catch (e: Exception) {
-            result.setTextColor(Color.RED)
-            result.text = "cerrado"
+        btnScan.setOnClickListener {
+            onScanButtonClicked()
         }
     }
 
-    @SuppressLint("SetTextI18n")
-    fun scanRange(from: Int, to: Int) {
-        val result = tvResultRange
+    private suspend fun portScan(ipAddress: String, startPort: Int, endPort: Int): List<Int> = withContext(Dispatchers.IO) {
+        val openPorts = mutableListOf<Int>()
+        for (port in startPort..endPort) {
+            try {
+                val socket = Socket()
+                socket.connect(InetSocketAddress(ipAddress, port), 1000)
+                socket.close()
+                openPorts.add(port)
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
+        return@withContext openPorts
+
+    }
+
+@SuppressLint("SetTextI18n")
+private fun onScanButtonClicked() {
+    lifecycleScope.launch {
         try {
-            // Get the IP address of the local device
-            val localhost = InetAddress.getLocalHost()
-            // Loop through the specified port range
-            for (port in from..to) {
-                try {
-                    // Create a new socket and attempt to connect to the port
-                    val socket = Socket()
-                    socket.connect(InetSocketAddress(localhost.hostAddress, port), 1000)
-                    result.setTextColor(Color.GREEN)
-                    result.text = "$port abierto"
-                    // Close the socket
-                    socket.close()
-                } catch (e: Exception) {
-                    result.setTextColor(Color.RED)
-                    result.text = "cerrado"
+            val ipAddress = etTarget.toString()
+            val startPort = etStartPort.toString().toIntOrNull()
+            val endPort = etEndPort.toString().toIntOrNull()
+            val openPorts = startPort?.let {
+                if (endPort != null) {
+                    portScan(ipAddress, it, endPort)
                 }
             }
+            if(openPorts.toString() == NULL) {
+                tvResult.text = "ALL CLOSE"
+            } else {
+                tvResult.text = "Los puertos abiertos son: " + openPorts.toString()
+            }
+
         } catch (e: Exception) {
-            result.setTextColor(Color.RED)
-            result.text = "cerrados"
+            e.printStackTrace()
         }
     }
+}
+
 }
