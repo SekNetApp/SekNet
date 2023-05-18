@@ -1,125 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="64dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="16dp">
+        android:layout_height="wrap_content">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cvTarget"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="56dp"
-            app:cardBackgroundColor="@color/light_smooth_red"
-            app:cardCornerRadius="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+       <com.google.android.material.divider.MaterialDivider
+           android:id="@+id/upperDivider"
+           android:layout_width="match_parent"
+           android:layout_height="10dp"
+           android:layout_margin="16dp"
+           android:background="@color/light_red"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintBottom_toTopOf="@id/portscanTargetLayout"
+           />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/portscanTargetLayout"
+            android:layout_width="192dp"
+            android:layout_height="60dp"
+            android:hint="Host"
+            android:textColorHint="@color/light_smooth_red"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintEnd_toStartOf="@id/portscanFromLayout"
+            app:layout_constraintTop_toBottomOf="@id/upperDivider"
+            app:layout_constraintBottom_toTopOf="@id/bottomDivider">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/portscanTargetHost"
+            android:textSize="14dp"
+            android:textColor="@color/black"
+            android:background="@color/light_smooth_red_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:orientation="vertical">
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/port_scanner"
-                    android:textAllCaps="true"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/portscanFromLayout"
+            android:layout_width="64dp"
+            android:layout_height="60dp"
+            android:hint="From"
+            android:textColorHint="@color/light_smooth_red"
+            app:layout_constraintStart_toEndOf="@id/portscanTargetLayout"
+            app:layout_constraintEnd_toStartOf="@id/portscanToLayout"
+            app:layout_constraintTop_toTopOf="@id/upperDivider"
+            app:layout_constraintBottom_toBottomOf="@id/bottomDivider">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/portscanFromPort"
+            android:textSize="14dp"
+            android:textColor="@color/black"
+            android:background="@color/light_smooth_red_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/start_port"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:textStyle="italic" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/etStartPort"
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:inputType="number"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/portscanToLayout"
+            android:layout_width="64dp"
+            android:layout_height="60dp"
+            android:hint="To"
+            android:textColorHint="@color/light_smooth_red"
+            app:layout_constraintStart_toEndOf="@id/portscanFromLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/upperDivider"
+            app:layout_constraintBottom_toBottomOf="@id/bottomDivider">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/end_port"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:textStyle="italic" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/portscanToPort"
+            android:textSize="14dp"
+            android:textColor="@color/black"
+            android:background="@color/light_smooth_red_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-                <EditText
-                    android:id="@+id/etEndPort"
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:inputType="number"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/ip"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:textStyle="italic" />
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/bottomDivider"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_margin="16dp"
+        android:background="@color/light_red"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/portscanTargetLayout"
+        />
 
-                <EditText
-                    android:id="@+id/etTarget"
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:inputType="text"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:id="@+id/btnScan"
-                    android:layout_width="120dp"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="16dp"
-                    android:textAlignment="center"
-                    android:backgroundTint="@color/dark_yellow"
-                    android:text="@string/scan_btn"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tvResult"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:textAlignment="center"
-                    android:textAllCaps="true"
-                    android:textSize="32sp" />
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
 
+    <ListView
+        android:id="@+id/portscanResultList"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_margin="16dp"
+        android:background="@color/white"
+        android:divider="@color/light_smooth_red"
+        android:dividerHeight="1dp"
+        tools:listitem="@layout/listview_item"
+        android:backgroundTint="@color/light_smooth_red_2"
+        android:transcriptMode="alwaysScroll"
+        />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/portscanButtonScan"
+            android:text="SCAN"
+            android:textSize="20dp"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_margin="16dp"
+            android:textColor="@color/white"
+            android:background="@color/green"
+            android:clickable="true"
+            app:cornerRadius="16dp"
+            app:elevation="16dp"
+            style="@style/Widget.MaterialComponents.Button" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/portscanButtonClear"
+            android:text="CLEAR"
+            android:textSize="20dp"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_margin="16dp"
+            android:textColor="@color/white"
+            android:background="@color/light_smooth_red"
+            android:clickable="true"
+            app:cornerRadius="16dp"
+            app:elevation="16dp"
+            style="@style/Widget.MaterialComponents.Button" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
