@@ -32,4 +32,5 @@
     <string name="download_result">Download Result</string>
     <string name="upload_result">Upload Result</string>
     <string name="getting_information">Getting Information ...</string>
+    <string name="analyze">analizar</string>
 </resources>
