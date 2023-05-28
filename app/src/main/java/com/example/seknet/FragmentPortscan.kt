@@ -59,7 +59,7 @@ class FragmentPortscan : Fragment(R.layout.fragment_portscan) {
             for (port in from..to) {
                 try {
                     s = Socket()
-                    s.connect(InetSocketAddress(ip, port), 1000)
+                    s.connect(InetSocketAddress(ip, port), 2000)
                     if (s.isConnected) {
                         openPorts.add("Host $ip is OPEN on port $port")
                         requireActivity().runOnUiThread {
