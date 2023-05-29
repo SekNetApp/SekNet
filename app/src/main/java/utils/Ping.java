@@ -47,7 +47,7 @@ public class Ping {
         this.ttl = ttl;
     }
 
-    public boolean ping() {
+    /*public boolean ping() {
         try {
             InetAddress address = PingExt.getHostByName(ipv6, host);
             if (address == null)
@@ -68,7 +68,7 @@ public class Ping {
             throw new RuntimeException(e);
         }
         return true;
-    }
+    }*/
 
     public boolean fail() {
         return !reachable;
