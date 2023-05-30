@@ -39,14 +39,39 @@
             <TextView
                 android:id="@+id/infoDeviceNameValue"
                 android:text="@string/getting_information"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16sp"
                 app:layout_constraintStart_toStartOf="@id/infoDeviceNameLabel"
                 app:layout_constraintTop_toBottomOf="@id/infoDeviceNameLabel"
                 app:layout_constraintEnd_toEndOf="@id/infoDeviceNameLabel"
+                />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/middleDivider"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_margin="16dp"
+                android:background="@color/light_red"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/infoDeviceNameValue"
                 app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/infoDeviceWifiNameValue"
+                android:text="@string/getting_information"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="@id/infoDeviceNameValue"
+                app:layout_constraintTop_toBottomOf="@id/middleDivider"
+                app:layout_constraintEnd_toEndOf="@id/infoDeviceNameValue"
 
                 />
 

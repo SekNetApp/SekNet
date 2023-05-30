@@ -8,7 +8,6 @@ import java.net.UnknownHostException;
 
 public class Ping {
     public String host;
-    public boolean ipv6;
     public int timeout = 5000;
     public int ttl; // set ttl
     public String ip; // host resolved ip
@@ -18,16 +17,15 @@ public class Ping {
     public boolean ttlex; // ttl exceeded
     public int ttlr; // ttl recived (host pinged)
     public int seq; // icmp_seq=387
-
     public boolean unreachable; // From 10.10.6.1: icmp_seq=1 Destination Port Unreachable
     public boolean reachable; // ping timeout or reachable
 
-    public static InetAddress getHostByName(boolean ipv6, String host) throws UnknownHostException {
+    public static InetAddress getHostByName(String host) throws UnknownHostException {
         InetAddress[] aa = InetAddress.getAllByName(host);
         for (InetAddress a : aa) {
-            if (a instanceof Inet4Address && !ipv6)
+            if (a instanceof Inet4Address)
                 return a;
-            if (a instanceof Inet6Address && ipv6)
+            if (a instanceof Inet6Address)
                 return a;
         }
         return null;
@@ -36,20 +34,18 @@ public class Ping {
     public Ping() {
     }
 
-    public Ping(String host, boolean ipv6) {
+    public Ping(String host) {
         this.host = host;
-        this.ipv6 = ipv6;
     }
 
-    public Ping(String host, boolean ipv6, int ttl) {
+    public Ping(String host, int ttl) {
         this.host = host;
-        this.ipv6 = ipv6;
         this.ttl = ttl;
     }
 
-    /*public boolean ping() {
+    public boolean ping() {
         try {
-            InetAddress address = PingExt.getHostByName(ipv6, host);
+            InetAddress address = PingExt.getHostByName(host);
             if (address == null)
                 throw new RuntimeException("Unknown host: " + host);
             ip = address.getHostAddress();
@@ -68,7 +64,7 @@ public class Ping {
             throw new RuntimeException(e);
         }
         return true;
-    }*/
+    }
 
     public boolean fail() {
         return !reachable;

@@ -70,6 +70,13 @@ class MainActivity : AppCompatActivity() {
                         drawerLayout.closeDrawers()
                     }
                 }
+                R.id.item_menu_tracert -> {
+                    supportFragmentManager.commit {
+                        setReorderingAllowed(true)
+                        replace<FragmentTraceroute>(R.id.fragment_content_main)
+                        drawerLayout.closeDrawers()
+                    }
+                }
             }
             true
         }

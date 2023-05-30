@@ -34,15 +34,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/upperDivider"
             app:layout_constraintBottom_toTopOf="@id/bottomDivider"
-            style="@style/Widget.Material3.TextInputEditText.OutlinedBox">
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tracertTargetHost"
+                android:layout_width="192dp"
+                android:layout_height="48dp"
                 android:textSize="14dp"
+                android:textColorHint="@color/light_smooth_red"
                 android:textColor="@color/black"
-                android:background="@color/light_smooth_red_2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:background="@color/light_smooth_red_2" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -59,7 +60,9 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.google.android.material.textview.MaterialTextView
+
+
+<!--    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tracertResult"
         android:layout_width="match_parent"
         android:layout_height="400dp"
@@ -70,43 +73,65 @@
         tools:listitem="@layout/listview_item"
         android:backgroundTint="@color/light_smooth_red_2"
         android:transcriptMode="alwaysScroll"
-        />
+        />-->
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/output"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_margin="16dp"
+            android:textColor="@color/black"
+            android:background="@color/light_smooth_red_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bottomGuideline" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/tracertButtonStart"
-            android:text="START"
-            android:textSize="20sp"
+            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="128dp"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
             android:layout_margin="16dp"
-            android:textColor="@color/white"
             android:background="@color/green"
+            android:text="START"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
             app:cornerRadius="16dp"
             app:elevation="16dp"
-            style="@style/Widget.MaterialComponents.Button"
-            />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tracertButtonStop"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/tracertButtonStop"
-            android:text="STOP"
-            android:textSize="20sp"
+            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="128dp"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
             android:layout_margin="16dp"
-            android:textColor="@color/white"
             android:background="@color/light_smooth_red"
+            android:text="STOP"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
             app:cornerRadius="16dp"
             app:elevation="16dp"
-            style="@style/Widget.MaterialComponents.Button" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tracertButtonStart" />
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottomGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="482dp" />
 
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>

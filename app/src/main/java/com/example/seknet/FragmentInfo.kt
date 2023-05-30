@@ -1,23 +1,30 @@
 package com.example.seknet
 
-import android.annotation.SuppressLint
+import android.R.attr.data
+import android.content.Context
+import android.net.wifi.WifiInfo
+import android.net.wifi.WifiManager
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import com.example.seknet.databinding.FragmentInfoBinding
+
 
 class FragmentInfo : Fragment(R.layout.fragment_info) {
 
     private lateinit var binding: FragmentInfoBinding
     private var result : String = ""
+    private var resultWifi : String = ""
+    private var data : String = ""
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentInfoBinding.bind(view)
         activity?.title = "INFO";
         result = getSystemDetail()
-        loadSystemDetail()
+        resultWifi = getSystemWifi()
+        loadSystemInfo()
     }
     private fun getSystemDetail(): String {
         return  "Brand: ${Build.BRAND} \n" +
@@ -35,8 +42,41 @@ class FragmentInfo : Fragment(R.layout.fragment_info) {
                 "FingerPrint: ${Build.FINGERPRINT} \n" +
                 "Version Code: ${Build.VERSION.RELEASE}"
     }
-    private fun loadSystemDetail() {
+
+    private fun getSystemWifi(): String {
+        val mWifiManager: WifiManager = requireContext().getSystemService(Context.WIFI_SERVICE) as WifiManager
+        val connInfo = mWifiManager.connectionInfo
+
+        val ipAddress = connInfo.ipAddress
+        val ipAddressValue = String.format(
+            "%d.%d.%d.%d",
+            ipAddress and 0xff,
+            ipAddress shr 8 and 0xff,
+            ipAddress shr 16 and 0xff,
+            ipAddress shr 24 and 0xff
+        )
+        val NumOfRSSILevels = 5
+        val wifiInfo = HashMap<String, String>()
+        wifiInfo["SSID"] = connInfo.ssid
+
+        wifiInfo["IP Address"] = ipAddressValue + ""
+        wifiInfo["MAC Address"] = connInfo.macAddress
+        wifiInfo["LinkSpeed"] = connInfo.linkSpeed.toString() + WifiInfo.LINK_SPEED_UNITS
+
+
+        val it: MutableIterator<*> = wifiInfo.entries.iterator()
+
+        while (it.hasNext()) {
+            val (key, value) = it.next() as Map.Entry<*, *>
+            data = (data + key).toString() + " : " + value + "\n"
+            it.remove()
+        }
+        return data
+    }
+
+    private fun loadSystemInfo() {
         binding.infoDeviceNameValue.text = result
+        binding.infoDeviceWifiNameValue.text = resultWifi
     }
 
 }

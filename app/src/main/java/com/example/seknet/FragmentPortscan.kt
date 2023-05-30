@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.seknet.databinding.FragmentPortscanBinding
@@ -55,32 +56,34 @@ class FragmentPortscan : Fragment(R.layout.fragment_portscan) {
     }
 
     private suspend fun onScanButtonClicked(ip: String, from: Int, to: Int) =
-        withContext(Dispatchers.IO) {
+        withContext(Dispatchers.IO.limitedParallelism(1)) {
             for (port in from..to) {
                 try {
                     s = Socket()
                     s.connect(InetSocketAddress(ip, port), 2000)
                     if (s.isConnected) {
-                        openPorts.add("Host $ip is OPEN on port $port")
                         requireActivity().runOnUiThread {
+                            openPorts.add("Host $ip is OPEN on port $port")
                             portResultList.notifyDataSetChanged()
                         }
                         s.close()
                     }
                 } catch (e: IOException) {
-                    openPorts.add("Host $ip is CLOSED on port $port")
+                    requireActivity().runOnUiThread {
+                        openPorts.add("Host $ip is CLOSED on port $port")
+                        portResultList.notifyDataSetChanged()
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
                     requireActivity().runOnUiThread {
                         portResultList.notifyDataSetChanged()
                     }
-                    s.close()
-                } catch (e: NullPointerException) {
-                    e.printStackTrace()
+                    Toast.makeText(requireContext(), "Unknown error", Toast.LENGTH_SHORT).show()
                 }
             }
         }
 
     private fun setAdapter() {
-
         portResultList = ArrayAdapter(requireActivity(), R.layout.listview_item, openPorts)
         listView = binding.portscanResultList
         listView.adapter = portResultList

@@ -14,7 +14,7 @@
     <string name="item_menu_portscan">PortScan</string>
     <string name="item_menu_overview">Analisis</string>
     <string name="item_menu_speedtest">SpeedTest</string>
-    <string name="item_menu_settings">Configuracion</string>
+    <string name="item_menu_tracert">Tracert</string>
 
     <string name="portscan_title">Port Scanner</string>
     <string name="start_port">Puerto Inicio</string>
