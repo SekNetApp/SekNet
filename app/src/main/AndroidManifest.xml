@@ -4,14 +4,14 @@
 
     <uses-permission
         android:name="android.permission.NEARBY_WIFI_DEVICES"
-        android:usesPermissionFlags="neverForLocation"
-        tools:targetApi="s" />
+        android:usesPermissionFlags="neverForLocation" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.READ_PRECISE_PHONE_STATE"
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission
+        android:name="android.permission.READ_PRECISE_PHONE_STATE"
         tools:ignore="ProtectedPermissions" />
 
     <application
@@ -22,13 +22,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/logo_seknet_square_icon"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SekNet"
-        tools:targetApi="31">
+        android:theme="@style/Theme.SekNet">
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            tools:ignore="ExtraText"
-            android:theme="@style/Theme.MyApplication.NoActionBar">
+            android:theme="@style/Theme.MyApplication.NoActionBar"
+            tools:ignore="ExtraText">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

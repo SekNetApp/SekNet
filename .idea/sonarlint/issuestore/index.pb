@@ -7,5 +7,3 @@ d
 4app/src/main/java/com/example/seknet/FragmentInfo.kt,5\4\54fdef9e2a961045508763f9c86447c0403dd571
 h
 8app/src/main/java/com/example/seknet/FragmentAnalisis.kt,6\2\6234700ce6c899d6f627e2d27ae3c51a0bd48087
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e

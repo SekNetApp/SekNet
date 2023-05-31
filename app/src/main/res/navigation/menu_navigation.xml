@@ -27,4 +27,8 @@
         android:id="@+id/fragmentAnalisis"
         android:name="com.example.seknet.FragmentAnalisis"
         android:label="@string/item_menu_overview" />
+    <fragment
+        android:id="@+id/fragmentPing"
+        android:name="com.example.seknet.FragmentPing"
+        android:label="FragmentPing" />
 </navigation>

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_marginTop="64dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp">
 
         <com.google.android.material.divider.MaterialDivider
             android:id="@+id/upperDivider"
@@ -18,32 +18,52 @@
             android:layout_height="10dp"
             android:layout_margin="16dp"
             android:background="@color/light_red"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/pingTargetLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/tracertTargetLayout"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tracertTargetLayout"
+            android:id="@+id/pingTargetLayout"
             android:layout_width="192dp"
             android:layout_height="48dp"
             android:hint="Host"
             android:textColorHint="@color/light_smooth_red"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/upperDivider"
             app:layout_constraintBottom_toTopOf="@id/bottomDivider"
-            >
+            app:layout_constraintEnd_toStartOf="@id/pingTargetLayoutCount"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/upperDivider">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pingTargetHost"
+            android:layout_width="192dp"
+            android:layout_height="48dp"
+            android:background="@color/light_smooth_red_2"
+            android:textColor="@color/black"
+            android:textColorHint="@color/light_smooth_red"
+            android:textSize="14dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/pingTargetLayoutCount"
+            android:layout_width="64dp"
+            android:layout_height="48dp"
+            android:hint="Count"
+            android:textColorHint="@color/light_smooth_red"
+            app:layout_constraintBottom_toTopOf="@id/bottomDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/pingTargetLayout"
+            app:layout_constraintTop_toBottomOf="@id/upperDivider">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tracertTargetHost"
-                android:layout_width="192dp"
-                android:layout_height="48dp"
-                android:textSize="14dp"
-                android:textColorHint="@color/light_smooth_red"
+                android:id="@+id/pingTargetCount"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/light_smooth_red_2"
                 android:textColor="@color/black"
-                android:background="@color/light_smooth_red_2" />
+                android:textColorHint="@color/light_smooth_red"
+                android:textSize="14dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -53,27 +73,11 @@
             android:layout_height="10dp"
             android:layout_margin="16dp"
             android:background="@color/light_red"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tracertTargetLayout"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pingTargetLayout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-<!--    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tracertResult"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_margin="16dp"
-        android:background="@color/white"
-        android:divider="@color/light_smooth_red"
-        android:dividerHeight="1dp"
-        tools:listitem="@layout/listview_item"
-        android:backgroundTint="@color/light_smooth_red_2"
-        android:transcriptMode="alwaysScroll"
-        />-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -84,15 +88,15 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_margin="16dp"
-            android:textColor="@color/black"
             android:background="@color/light_smooth_red_2"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@id/bottomGuideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/bottomGuideline" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/tracertButtonStart"
+            android:id="@+id/pingButtonStart"
             style="@style/Widget.MaterialComponents.Button"
             android:layout_width="128dp"
             android:layout_height="wrap_content"
@@ -105,17 +109,17 @@
             app:cornerRadius="16dp"
             app:elevation="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/tracertButtonStop"
+            app:layout_constraintEnd_toStartOf="@id/pingButtonClear"
             app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/tracertButtonStop"
+            android:id="@+id/pingButtonClear"
             style="@style/Widget.MaterialComponents.Button"
             android:layout_width="128dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:background="@color/light_smooth_red"
-            android:text="STOP"
+            android:text="CLEAR"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="20sp"
@@ -123,7 +127,7 @@
             app:elevation="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tracertButtonStart" />
+            app:layout_constraintStart_toEndOf="@id/pingButtonStart" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/bottomGuideline"
