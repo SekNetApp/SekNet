@@ -30,9 +30,9 @@
             android:title="@string/item_menu_speedtest" />
 
         <item
-            android:id="@+id/item_menu_tracert"
-            android:icon="@drawable/icon_settings_24"
-            android:title="@string/item_menu_tracert" />
+            android:id="@+id/item_menu_ping"
+            android:icon="@drawable/icon_network_ping_24"
+            android:title="@string/item_menu_ping" />
     </group>
 
 </menu>
