@@ -13,6 +13,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/white"
+        android:elevation="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,17 +21,18 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="16dp">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/infoDeviceNameLabel"
-                android:text="GENERAL DEVICE INFORMATION"
+                android:text="INFORMACION GENERAL DEL DISPOSITIVO"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_width="wrap_content"
+                android:textColor="@color/light_red"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:background="@color/light_smooth_red_2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -41,9 +43,9 @@
                 android:text="@string/getting_information"
                 android:textSize="14sp"
                 android:textColor="@color/black"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16sp"
+                android:layout_margin="16dp"
                 app:layout_constraintStart_toStartOf="@id/infoDeviceNameLabel"
                 app:layout_constraintTop_toBottomOf="@id/infoDeviceNameLabel"
                 app:layout_constraintEnd_toEndOf="@id/infoDeviceNameLabel"
@@ -52,26 +54,27 @@
             <com.google.android.material.divider.MaterialDivider
                 android:id="@+id/middleDivider"
                 android:layout_width="match_parent"
-                android:layout_height="10dp"
+                android:layout_height="4dp"
                 android:layout_margin="16dp"
                 android:background="@color/light_red"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/infoDeviceNameValue"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/infoDeviceWifiNameValue"
                 />
 
             <TextView
                 android:id="@+id/infoDeviceWifiNameValue"
                 android:text="@string/getting_information"
                 android:textSize="14sp"
+                android:textAlignment="textStart"
                 android:textColor="@color/black"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                app:layout_constraintStart_toStartOf="@id/infoDeviceNameValue"
+                android:layout_margin="16dp"
+                app:layout_constraintStart_toStartOf="@id/infoDeviceNameLabel"
                 app:layout_constraintTop_toBottomOf="@id/middleDivider"
-                app:layout_constraintEnd_toEndOf="@id/infoDeviceNameValue"
+                app:layout_constraintEnd_toEndOf="@id/infoDeviceNameLabel"
 
                 />
 

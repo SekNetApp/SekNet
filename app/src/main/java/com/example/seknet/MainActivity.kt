@@ -1,4 +1,5 @@
 package com.example.seknet
+
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -11,7 +12,7 @@ import com.example.seknet.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var drawerLayout : DrawerLayout
+    private lateinit var drawerLayout: DrawerLayout
     private lateinit var binding: ActivityMainBinding
     private lateinit var toggle: ActionBarDrawerToggle
 
@@ -21,8 +22,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.appBarMain.toolbar)
         drawerLayout = binding.lateralMenu
-        val toggle = ActionBarDrawerToggle(this,binding.lateralMenu,binding.appBarMain.toolbar,
-            R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        val toggle = ActionBarDrawerToggle(
+            this, binding.lateralMenu, binding.appBarMain.toolbar,
+            R.string.navigation_drawer_open, R.string.navigation_drawer_close
+        )
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
@@ -42,6 +45,7 @@ class MainActivity : AppCompatActivity() {
                         drawerLayout.closeDrawers()
                     }
                 }
+
                 R.id.item_menu_info -> {
                     supportFragmentManager.commit {
                         setReorderingAllowed(true)
@@ -49,20 +53,23 @@ class MainActivity : AppCompatActivity() {
                         drawerLayout.closeDrawers()
                     }
                 }
+
                 R.id.item_menu_portscan -> {
-                     supportFragmentManager.commit {
+                    supportFragmentManager.commit {
                         setReorderingAllowed(true)
                         replace<FragmentPortscan>(R.id.fragment_content_main)
                         drawerLayout.closeDrawers()
                     }
                 }
+
                 R.id.item_menu_overview -> {
-                     supportFragmentManager.commit {
+                    supportFragmentManager.commit {
                         setReorderingAllowed(true)
                         replace<FragmentAnalisis>(R.id.fragment_content_main)
                         drawerLayout.closeDrawers()
                     }
                 }
+
                 R.id.item_menu_speedtest -> {
                     supportFragmentManager.commit {
                         setReorderingAllowed(true)
@@ -70,6 +77,7 @@ class MainActivity : AppCompatActivity() {
                         drawerLayout.closeDrawers()
                     }
                 }
+
                 R.id.item_menu_ping -> {
                     supportFragmentManager.commit {
                         setReorderingAllowed(true)
@@ -81,8 +89,9 @@ class MainActivity : AppCompatActivity() {
             true
         }
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (toggle.onOptionsItemSelected(item)){
+        if (toggle.onOptionsItemSelected(item)) {
             return true
         }
         return super.onOptionsItemSelected(item)

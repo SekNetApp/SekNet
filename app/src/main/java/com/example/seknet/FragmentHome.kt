@@ -12,6 +12,7 @@ class FragmentHome : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomeBinding.bind(view)
-        activity?.title = "HOME";
+        activity?.title = "HOME"
+        binding.appVersion.text = "Version: " + BuildConfig.VERSION_NAME.toString()
     }
 }

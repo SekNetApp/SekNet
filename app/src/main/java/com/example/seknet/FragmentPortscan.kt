@@ -5,11 +5,12 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.seknet.databinding.FragmentPortscanBinding
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.IOException
@@ -39,7 +40,10 @@ class FragmentPortscan : Fragment(R.layout.fragment_portscan) {
     @SuppressLint("SetTextI18n")
     private fun initListeners() {
         binding.portscanButtonScan.setOnClickListener {
-            setPortParameters()
+            if (emptyFields()) {
+                binding.portscanButtonScan.isEnabled = false
+                setPortParameters()
+            }
         }
         binding.portscanButtonClear.setOnClickListener {
             portResultList.clear()
@@ -50,11 +54,14 @@ class FragmentPortscan : Fragment(R.layout.fragment_portscan) {
         ip = binding.portscanTargetHost.text.toString()
         from = binding.portscanFromPort.text.toString().toInt()
         to = binding.portscanToPort.text.toString().toInt()
+        val sb = Snackbar.make(requireView(), "Analizando...$ip", Snackbar.LENGTH_LONG)
+        sb.show()
         lifecycleScope.launch {
             onScanButtonClicked(ip, from, to)
         }
     }
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     private suspend fun onScanButtonClicked(ip: String, from: Int, to: Int) =
         withContext(Dispatchers.IO.limitedParallelism(1)) {
             for (port in from..to) {
@@ -73,13 +80,18 @@ class FragmentPortscan : Fragment(R.layout.fragment_portscan) {
                         openPorts.add("Host $ip is CLOSED on port $port")
                         portResultList.notifyDataSetChanged()
                     }
-                } catch (e: Exception) {
+                } catch (e: Error) {
                     e.printStackTrace()
                     requireActivity().runOnUiThread {
                         portResultList.notifyDataSetChanged()
                     }
-                    Toast.makeText(requireContext(), "Unknown error", Toast.LENGTH_SHORT).show()
+                    val sb =
+                        Snackbar.make(requireView(), "Error desconocido", Snackbar.LENGTH_SHORT)
+                    sb.show()
                 }
+            }
+            activity?.runOnUiThread {
+                finnishScan()
             }
         }
 
@@ -87,6 +99,38 @@ class FragmentPortscan : Fragment(R.layout.fragment_portscan) {
         portResultList = ArrayAdapter(requireActivity(), R.layout.listview_item, openPorts)
         listView = binding.portscanResultList
         listView.adapter = portResultList
+
+    }
+
+    private fun emptyFields(): Boolean {
+        if (binding.portscanTargetHost.text.toString()
+                .isEmpty() || binding.portscanFromPort.text.toString()
+                .isEmpty() || binding.portscanToPort.text.toString().isEmpty()
+        ) {
+            val sb =
+                Snackbar.make(requireView(), "Rellene los campos vacios", Snackbar.LENGTH_SHORT)
+            sb.show()
+            return false
+        }
+        if ((binding.portscanFromPort.text).toString().toInt() >= (binding.portscanToPort.text).toString().toInt()
+        ) {
+            val sb =
+                Snackbar.make(
+                    requireView(),
+                    "Indique un rango valido de puertos desde < hasta",
+                    Snackbar.LENGTH_SHORT
+                )
+            sb.show()
+            return false
+        }
+        return true
+    }
+
+    private fun finnishScan() {
+        val sb =
+            Snackbar.make(requireView(), "Analisis finalizado", Snackbar.LENGTH_SHORT)
+        sb.show()
+        binding.portscanButtonScan.isEnabled = true
 
     }
 }

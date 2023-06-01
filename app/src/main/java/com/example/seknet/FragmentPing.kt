@@ -11,7 +11,6 @@ import androidx.preference.PreferenceManager
 import com.example.seknet.databinding.FragmentPingBinding
 import com.github.axet.androidlibrary.widgets.ErrorDialog
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.coroutines.Job
 import utils.Ping
 import utils.PingExt
 
@@ -19,25 +18,25 @@ import utils.PingExt
 class FragmentPing : Fragment(R.layout.fragment_ping) {
     private lateinit var binding: FragmentPingBinding
     private var out: StringBuilder = StringBuilder()
-    private val job: Job = Job()
     var TAG: String = FragmentPing::class.java.simpleName
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentPingBinding.bind(view)
         activity?.title = "PING"
-        binding.output.text = out
         setListeners()
     }
 
     private fun setListeners() {
         binding.pingButtonStart.setOnClickListener {
-                ping(
-                    requireContext(),
-                    binding.pingTargetHost.text.toString(),
-                    binding.pingTargetCount.text.toString().toInt(),
-                    out
-                )
+            out.clear()
+            binding.output.text = out
+            ping(
+                requireContext(),
+                binding.pingTargetHost.text.toString(),
+                binding.pingTargetCount.text.toString().toInt(),
+                out
+            )
             binding.pingButtonClear.setOnClickListener {
                 out.clear()
                 binding.output.text = out
@@ -68,8 +67,7 @@ class FragmentPing : Fragment(R.layout.fragment_ping) {
             var tsum = 0.0
             var tsum2 = 0.0
             val start = System.currentTimeMillis()
-            val sb = Snackbar.make(requireView(), "Quering", Snackbar.LENGTH_LONG)
-                .setAction("Action", null)
+            val sb = Snackbar.make(requireView(), "Ejecutando ping", Snackbar.LENGTH_LONG)
             sb.show()
             for (i in 0 until count) {
                 sent++
@@ -153,11 +151,15 @@ class FragmentPing : Fragment(R.layout.fragment_ping) {
         } catch (e: Exception) {
             Log.e(TAG, "Error", e)
             this.out.append(ErrorDialog.toMessage(e))
+            val sb = Snackbar.make(requireView(), "Unknown error", Snackbar.LENGTH_SHORT)
+            sb.show()
         }
         updateOut()
+        val sb = Snackbar.make(requireView(), "Ejecucion finalizada", Snackbar.LENGTH_LONG)
+        sb.show()
     }
 
-    private fun updateOut(){
+    private fun updateOut() {
         binding.output.text = out
     }
 }
