@@ -61,7 +61,7 @@ open class Ping {
                 hoopIp = host
             } else {
                 reachable =
-                    address.isReachable(timeout) // return true even if host is "Destination is Unreachable"
+                    address.isReachable(timeout)
                 ms = System.currentTimeMillis() - now
             }
         } catch (e: IOException) {

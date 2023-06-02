@@ -14,9 +14,9 @@ import com.example.seknet.databinding.FragmentInfoBinding
 class FragmentInfo : Fragment(R.layout.fragment_info) {
 
     private lateinit var binding: FragmentInfoBinding
-    private var result : String = ""
-    private var resultWifi : String = ""
-    private var data : String = ""
+    private var result: String = ""
+    private var resultWifi: String = ""
+    private var data: String = ""
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentInfoBinding.bind(view)
@@ -25,8 +25,9 @@ class FragmentInfo : Fragment(R.layout.fragment_info) {
         resultWifi = getSystemWifi()
         loadSystemInfo()
     }
+
     private fun getSystemDetail(): String {
-        return  "Brand: ${Build.BRAND} \n" +
+        return "Brand: ${Build.BRAND} \n" +
                 "Model: ${Build.MODEL} \n" +
                 "ID: ${Build.ID} \n" +
                 "SDK: ${Build.VERSION.SDK_INT} \n" +
@@ -43,7 +44,8 @@ class FragmentInfo : Fragment(R.layout.fragment_info) {
     }
 
     private fun getSystemWifi(): String {
-        val mWifiManager: WifiManager = requireContext().getSystemService(Context.WIFI_SERVICE) as WifiManager
+        val mWifiManager: WifiManager =
+            requireContext().getSystemService(Context.WIFI_SERVICE) as WifiManager
         val connInfo = mWifiManager.connectionInfo
 
         val ipAddress = connInfo.ipAddress
