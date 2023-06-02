@@ -35,19 +35,26 @@ Each of these functionalities in our Network App provides unique benefits, empow
 
 Additionally to the standard androidx dependencies, these two implementations for the Ping functionality are needed:
 
-					 - implementation 'com.github.axet:android-library:1.35.28'  
-					 - implementation 'dnsjava:dnsjava:3.4.2'
+<div style="text-align: center;">
+	- implementation 'com.github.axet:android-library:1.35.28' 
+	- implementation 'dnsjava:dnsjava:3.4.2'
+</div>
 
 ### System Requirements
 
-					 - Android min SDK 31 (Android 12)
+<div style="text-align: center;">
+	- Android min SDK 31 (Android 12)
+</div>
+					 
 
 ### Installing
 
 Unsigned APK its available through our distribution website, you can also feel free to contact us and
 learn more about our app.
 
-					[SekNet download ->](https://seknetapp.github.io/SekNet/)
+<p align="center">
+  <a href="https://seknetapp.github.io/SekNet/">Download SekNet</a>
+</p>
 
 ## Help
 
@@ -59,14 +66,20 @@ the email indicated below:
 
 Contributors names and contact info
 
-													 - Daniel Ionut Fechete
-													 - Hector Tablado Sanchez
-													 - Alvaro Hernantes Antón
+<div style="text-align: center;">
+- Daniel Ionut Fechete
+- Hector Tablado Sanchez
+- Alvaro Hernantes Antón
+</div>
 
 ## Version History
 
-													* 1.0.0 
-													    * Initial Release
+<div style="text-align: center;">
+	* 1.0.0 
+	* Initial Release
+</div>
+
+													
 
 ## License
 
