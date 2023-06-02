@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">SekNet</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="item_menu_init">Inicio</string>
+    <string name="item_menu_info">Device Info</string>
+    <string name="item_menu_portscan">PortScan</string>
+    <string name="item_menu_overview">Analisis</string>
+    <string name="item_menu_speedtest">SpeedTest</string>
+    <string name="item_menu_ping">Ping</string>
+
+    <string name="portscan_title">Port Scanner</string>
+    <string name="start_port">Puerto Inicio</string>
+    <string name="end_port">Puerto Final</string>
+    <string name="ip">IP Destino</string>
+    <string name="scan_btn">SCAN</string>
+
+    <string name="port">Puerto</string>
+    <string name="inicio">Inicio</string>
+    <string name="pantalla_principal">Pantalla principal</string>
+    <string name="port_scanner">Port Scanner</string>
+    <string name="escanea_los_puertos_abiertos">Escanea los puertos abiertos</string>
+    <string name="infoHome">Bienvenidos a la aplicacion, utilice el menu desplegable para seleccionar la opcion que desee</string>
+    <string name="speedtest">START TEST</string>
+    <string name="fragment_info_loading">Getting Information ...</string>
+    <string name="analyze">analizar</string>
+    <string name="fragment_analisis_info">Utilidad de análisis de los dispositivos conectados a tu red, visibles desde tu dispositivo</string>
+    <string name="scan">SCAN</string>
+    <string name="clear">CLEAR</string>
+    <string name="version_mock">Version 1.2.4</string>
+    <string name="fragment_info_title">INFORMACION GENERAL DEL DISPOSITIVO</string>
+    <string name="fragment_ping_info">Introduzca la dirección ip o el nombre del Host y el número de peticiones de ping a realizar</string>
+    <string name="fragment_ping_host">IP o Host</string>
+    <string name="fragment_ping_count">Nº pet.</string>
+    <string name="start">START</string>
+    <string name="fragment_portscan_info">Introduzca la dirección ip o el nombre del Host y un rango válido de puertos a analizar, desde -> hasta</string>
+    <string name="from">Desde</string>
+    <string name="to">Hasta</string>
+</resources>

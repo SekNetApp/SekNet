@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/item_menu_home"
+            android:icon="@drawable/icon_home_24"
+            android:title="@string/item_menu_init" />
+
+        <item
+            android:id="@+id/item_menu_info"
+            android:icon="@drawable/icon_device_information_24"
+            android:title="@string/item_menu_info" />
+
+        <item
+            android:id="@+id/item_menu_portscan"
+            android:icon="@drawable/icon_safety_check_24"
+            android:title="@string/item_menu_portscan" />
+
+        <item
+            android:id="@+id/item_menu_overview"
+            android:icon="@drawable/icon_wifi_tethering_24"
+            android:title="@string/item_menu_overview" />
+
+        <item
+            android:id="@+id/item_menu_speedtest"
+            android:icon="@drawable/icon_network_check_24"
+            android:title="@string/item_menu_speedtest" />
+
+        <item
+            android:id="@+id/item_menu_ping"
+            android:icon="@drawable/icon_network_ping_24"
+            android:title="@string/item_menu_ping" />
+    </group>
+
+
+</menu>
