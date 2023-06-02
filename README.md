@@ -40,7 +40,7 @@ Additionally to the standard androidx dependencies, these two implementations fo
 
 ### System Requirements
 
-- Android min SDK 31 (Android 12)
+				- Android min SDK 31 (Android 12)
 					 
 ### Installing
 
