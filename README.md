@@ -1,3 +1,7 @@
+
+(https://github.com/SekNetApp/SekNet/blob/main/images/seknet_logo.png)
+
+
 # SEKNET APP
 
 Our Home Network Analyzer app is a user-friendly tool designed to help you monitor and optimize your home network effortlessly. With this app, you can easily analyze the performance, security, and connectivity of your devices and Wi-Fi network. 
