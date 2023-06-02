@@ -47,7 +47,7 @@ Additionally to the standard androidx dependencies, these two implementations fo
 Unsigned APK its available through our distribution website, you can also feel free to contact us and
 learn more about our app.
 
-<p align="center">
+<p align="center" size="16">
   <a href="https://seknetapp.github.io/SekNet/">Download SekNet</a>
 </p>
 
