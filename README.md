@@ -37,6 +37,8 @@ Additionally to the standard androidx dependencies, these two implementations fo
 
 <div style="text-align: center;">
 	- implementation 'com.github.axet:android-library:1.35.28' 
+</div>
+<div style="text-align: center;">
 	- implementation 'dnsjava:dnsjava:3.4.2'
 </div>
 
@@ -68,17 +70,21 @@ Contributors names and contact info
 
 <div style="text-align: center;">
 - Daniel Ionut Fechete
+</div>
+<div style="text-align: center;">
 - Hector Tablado Sanchez
+</div>
+<div style="text-align: center;">
 - Alvaro Hernantes Antón
 </div>
-
 ## Version History
 
 <div style="text-align: center;">
-	* 1.0.0 
-	* Initial Release
+	* 1.0.0
 </div>
-
+<div style="text-align: center;">
+	* 1.0.0
+</div>
 													
 
 ## License
