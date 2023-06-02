@@ -1,38 +1,81 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Descargar App de Android</title>
+  <title>Seknet App Home</title>
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <!-- Custom CSS -->
   <style>
-    /* Estilos personalizados */
+    body {
+      background-color: #f8f9fa;
+      background-image: url("images/background.jpeg");
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    .navbar {
+      background-color: #f95b5b;
+      color: #fff;
+    }
+
+    .navbar-brand,
+    .navbar-nav .nav-link {
+      color: #ffffff;
+    }
+
+    .jumbotron {
+      background-color: #343a40;
+      color: #fff;
+    }
+
+    .carousel-item {
+      height: 500px;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .section {
+      padding: 50px 0;
+    }
   </style>
 </head>
-<body>
 
-  <!-- Barra de navegación -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Mi App</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#home">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#about">Nosotros</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#contact">Contacto</a>
-        </li>
-      </ul>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <div>
+        <img src="images/seknet_logo.png" alt="Image" width="50" height="50">
+        <span><a class="navbar-brand" href="#">SEKNET APP</a></span>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#download">Descarga nuestra APP</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">Sobre nosotros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contactanos</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
 
-  <!-- Slider de imágenes -->
+  <!-- Home Section -->
+  <section id="home" class="section">
   <div id="home" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#home" data-slide-to="0" class="active"></li>
@@ -59,62 +102,62 @@
       <span class="sr-only">Siguiente</span>
     </a>
   </div>
+  </section>
 
-  <!-- Sección Nosotros -->
-  <section id="about" class="bg-light py-5">
+  <!-- Download Our App Section -->
+  <section id="download" class="section">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 mx-auto text-center">
-          <h2 class="display-4">Sobre Nosotros</h2>
-          <p class="lead">Breve descripción sobre tu aplicación y tu equipo.</p>
+        <div class="col-md-6">
+          <h2>Descarga nuestra APP</h2>
+          <p>Utiliza nuestras herramientas para conocer analizar tu red domestica.</p>
+          <a href="#" class="btn btn-primary">Descarga ahora</a>
+        </div>
+        <div class="col-md-6">
+          <!-- Insert app image or screenshot here -->
+          <img src="images/slider1.jpg" alt="App Screenshot" class="img-fluid" width="50%" height="50%">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Sección Contacto -->
-  <section id="contact" class="py-5">
+  <!-- About Us Section -->
+  <section id="about" class="section">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto text-center">
-          <h2 class="display-4">Contáctanos</h2>
-          <p class="lead">Ponte en contacto con nosotros para cualquier consulta o duda.</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-6 mx-auto">
-          <form>
-            <div class="form-group">
-              <label for="name">Nombre</label>
-              <input type="text" class="form-control" id="name" placeholder="Nombre">
-            </div>
-            <div class="form-group">
-              <label for="email">Correo electrónico</label>
-              <input type="email" class="form-control" id="email" placeholder="Correo electrónico">
-            </div>
-            <div class="form-group">
-              <label for="message">Mensaje</label>
-              <textarea class="form-control" id="message" rows="5" placeholder="Mensaje"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-          </form>
-        </div>
-      </div>
+      <h2>Sobre nosotros</h2>
+      <p>Somos un equipo de desarrolladores junior con grandes ideas y ganas de crear aplicaciones
+      utiles y sencillas para todos los usuarios. Nos interesa especialmente la seguridad de la red y los distintos 
+      dispositivos que tenemos en el ambito domestico.</p>
     </div>
   </section>
 
-  <!-- Botón de descarga de la app -->
-  <section class="bg-light py-5">
-    <div class="container text-center">
-      <h2 class="display-4">Descarga nuestra aplicación</h2>
-      <p class="lead">Haz clic en el botón para descargar la aplicación en tu dispositivo Android.</p>
-      <a href="enlace_a_tu_app.apk" class="btn btn-primary btn-lg">Descargar</a>
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contactanos</h2>
+      <p>¿Tienes una duda? o ¿Necesitas asistencia?, no lo dudes y ponte en contacto con nosotros, cualquier sugerencia es bienvenida.</p>
+      <form>
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input type="text" class="form-control" id="name" placeholder="Introduce tu nombre">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Introduce tu correo electronico">
+        </div>
+        <div class="form-group">
+          <label for="message">Mensaje</label>
+          <textarea class="form-control" id="message" rows="5" placeholder="Escribe aqui..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
     </div>
   </section>
 
-  <!-- Scripts de Bootstrap -->
+  <!-- Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
+
 </html>
