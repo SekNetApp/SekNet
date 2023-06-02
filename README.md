@@ -35,13 +35,12 @@ Each of these functionalities in our Network App provides unique benefits, empow
 
 Additionally to the standard androidx dependencies, these two implementations for the Ping functionality are needed:
 
-<p align="center">- implementation 'com.github.axet:android-library:1.35.28'</p>
-<p align="center">- implementation 'dnsjava:dnsjava:3.4.2'</p>	
+- implementation 'com.github.axet:android-library:1.35.28'
+- implementation 'dnsjava:dnsjava:3.4.2'
 
 ### System Requirements
 
-<p align="center">- Android min SDK 31 (Android 12)</p>
-					 
+- Android min SDK 31 (Android 12)
 					 
 ### Installing
 
