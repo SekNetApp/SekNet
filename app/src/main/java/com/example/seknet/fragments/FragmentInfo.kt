@@ -1,14 +1,13 @@
-package com.example.seknet
+package com.example.seknet.fragments
 
-import android.R.attr.data
 import android.content.Context
 import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
 import android.os.Build
 import android.os.Bundle
 import android.view.View
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
+import com.example.seknet.R
 import com.example.seknet.databinding.FragmentInfoBinding
 
 

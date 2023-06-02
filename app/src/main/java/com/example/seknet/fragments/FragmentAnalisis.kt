@@ -1,4 +1,4 @@
-package com.example.seknet
+package com.example.seknet.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

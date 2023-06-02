@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.seknet.activity.MainActivity
 
 class SplashScreen : AppCompatActivity() {
 

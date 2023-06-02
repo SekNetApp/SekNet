@@ -7,28 +7,28 @@
 
     <fragment
         android:id="@+id/fragmentHome"
-        android:name="com.example.seknet.FragmentHome"
+        android:name="com.example.seknet.fragments.FragmentHome"
         android:label="@string/item_menu_init" />
 
     <fragment
         android:id="@+id/fragmentInfo"
-        android:name="com.example.seknet.FragmentInfo"
+        android:name="com.example.seknet.fragments.FragmentInfo"
         android:label="@string/item_menu_info" />
 
     <fragment
         android:id="@+id/fragmentPortscan"
-        android:name="com.example.seknet.FragmentPortscan"
+        android:name="com.example.seknet.fragments.FragmentPortscan"
         android:label="@string/item_menu_portscan" />
     <fragment
         android:id="@+id/fragmentSpeedtest"
-        android:name="com.example.seknet.FragmentSpeedtest"
+        android:name="com.example.seknet.fragments.FragmentSpeedtest"
         android:label="@string/item_menu_speedtest" />
     <fragment
         android:id="@+id/fragmentAnalisis"
-        android:name="com.example.seknet.FragmentAnalisis"
+        android:name="com.example.seknet.fragments.FragmentAnalisis"
         android:label="@string/item_menu_overview" />
     <fragment
         android:id="@+id/fragmentPing"
-        android:name="com.example.seknet.FragmentPing"
+        android:name="com.example.seknet.fragments.FragmentPing"
         android:label="FragmentPing" />
 </navigation>

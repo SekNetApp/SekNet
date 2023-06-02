@@ -1,4 +1,4 @@
-package com.example.seknet
+package com.example.seknet.fragments
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.preference.PreferenceManager
+import com.example.seknet.R
 import com.example.seknet.databinding.FragmentPingBinding
 import com.github.axet.androidlibrary.widgets.ErrorDialog
 import com.google.android.material.snackbar.Snackbar
@@ -31,12 +32,15 @@ class FragmentPing : Fragment(R.layout.fragment_ping) {
         binding.pingButtonStart.setOnClickListener {
             out.clear()
             binding.output.text = out
-            ping(
-                requireContext(),
-                binding.pingTargetHost.text.toString(),
-                binding.pingTargetCount.text.toString().toInt(),
-                out
-            )
+            if (emptyFields()) {
+                ping(
+                    requireContext(),
+                    binding.pingTargetHost.text.toString(),
+                    binding.pingTargetCount.text.toString().toInt(),
+                    out
+                )
+            }
+
             binding.pingButtonClear.setOnClickListener {
                 out.clear()
                 binding.output.text = out
@@ -162,4 +166,17 @@ class FragmentPing : Fragment(R.layout.fragment_ping) {
     private fun updateOut() {
         binding.output.text = out
     }
+
+    private fun emptyFields(): Boolean {
+        if (binding.pingTargetHost.text.toString()
+                .isEmpty() || binding.pingTargetCount.text.toString().isEmpty()
+        ) {
+            val sb =
+                Snackbar.make(requireView(), "Rellene los campos vacios", Snackbar.LENGTH_SHORT)
+            sb.show()
+            return false
+        }
+        return true
+    }
+
 }

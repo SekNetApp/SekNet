@@ -1,4 +1,4 @@
-package com.example.seknet
+package com.example.seknet.fragments
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import com.example.seknet.R
 import com.example.seknet.databinding.FragmentPortscanBinding
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.Dispatchers
@@ -112,7 +113,8 @@ class FragmentPortscan : Fragment(R.layout.fragment_portscan) {
             sb.show()
             return false
         }
-        if ((binding.portscanFromPort.text).toString().toInt() >= (binding.portscanToPort.text).toString().toInt()
+        if ((binding.portscanFromPort.text).toString()
+                .toInt() >= (binding.portscanToPort.text).toString().toInt()
         ) {
             val sb =
                 Snackbar.make(

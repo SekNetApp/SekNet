@@ -1,4 +1,4 @@
-package com.example.seknet
+package com.example.seknet.activity
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -8,6 +8,13 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
+import com.example.seknet.fragments.FragmentAnalisis
+import com.example.seknet.fragments.FragmentHome
+import com.example.seknet.fragments.FragmentInfo
+import com.example.seknet.fragments.FragmentPing
+import com.example.seknet.fragments.FragmentPortscan
+import com.example.seknet.fragments.FragmentSpeedtest
+import com.example.seknet.R
 import com.example.seknet.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
