@@ -24,14 +24,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Material3.Light">
         <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:theme="@style/Theme.Seknet.NoActionBar"
-            tools:ignore="ExtraText">
+            android:name=".SplashScreen"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:permission="">
         </activity>
     </application>
 </manifest>
