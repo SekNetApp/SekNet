@@ -5,39 +5,36 @@ import java.io.IOException
 open class Ping {
     @JvmField
     var host: String? = null
-
     @JvmField
     var timeout = 5000
-    var ttl = 0
-
+    var ttl // set ttl
+            = 0
     @JvmField
-    var ip
+    var ip // host resolved ip
             : String? = null
-
     @JvmField
-    var hoop
+    var hoop // hoop or destination name
             : String? = null
-
     @JvmField
-    var hoopIp
+    var hoopIp // hoop (or destination) ip
             : String? = null
-
     @JvmField
-    var ms
+    var ms // ping delay
             : Long = 0
-
     @JvmField
-    var ttlex = false
-
+    var ttlex // ttl exceeded
+            = false
     @JvmField
-    var ttlr = 0
-
+    var ttlr // ttl recived (host pinged)
+            = 0
     @JvmField
-    var seq = 0
-
+    var seq // icmp_seq=387
+            = 0
     @JvmField
-    var unreachable = false
-    var reachable = false
+    var unreachable // From 10.10.6.1: icmp_seq=1 Destination Port Unreachable
+            = false
+    var reachable // ping timeout or reachable
+            = false
 
     constructor()
 
