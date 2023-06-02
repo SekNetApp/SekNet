@@ -1,6 +1,7 @@
 
-![SekNet](https://github.com/SekNetApp/SekNet/blob/main/images/seknet_logo.png)
-
+<p align="center">
+  <img src="https://github.com/SekNetApp/SekNet/blob/main/images/seknet_logo.png" alt="Logo">
+</p>
 
 # SEKNET APP
 
