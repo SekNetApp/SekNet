@@ -1,5 +1,5 @@
 
-(https://github.com/SekNetApp/SekNet/blob/main/images/seknet_logo.png)
+![SekNet](https://github.com/SekNetApp/SekNet/blob/main/images/seknet_logo.png)
 
 
 # SEKNET APP
