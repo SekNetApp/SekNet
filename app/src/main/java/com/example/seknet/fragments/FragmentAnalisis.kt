@@ -72,7 +72,7 @@ class FragmentAnalisis : Fragment() {
                     val inetAddress = address as? InetAddress ?: continue
                     val ip = inetAddress.hostAddress
                     val ipAddress =
-                        if (ip.contains('%')) ip.substringBefore('%') else ip // Remove scope id if present
+                        if (ip.contains('%')) ip.substringBefore('%') else ip
                     addResult("IP Address: $ipAddress")
                 }
             }
